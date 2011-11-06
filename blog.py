@@ -42,7 +42,7 @@ def cache_routes(app):
 
 @app.get('/')
 def index():
-    posts = {name : app.get_url('posts', post=name) for name in list_posts()}
+    posts = dict((name, app.get_url('posts', post=name)) for name in list_posts())
     return template('index', posts=posts)
 
 @app.get('/posts/:post/', name='posts')
