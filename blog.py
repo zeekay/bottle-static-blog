@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import argparse, glob, os
-from bottle import Bottle, run, template
+from bottle import Bottle, LocalRequest, run, template
 import misaka
+
+# monkey patch LocalRequest
+LocalRequest.environ = {}
 
 app = Bottle()
 
